@@ -1,4 +1,4 @@
-from player import HumanPlayer, RandomComputerPlayer
+from player import HumanPlayer, RandomComputerPlayer, GeniusComputerPlayer
 import time
 
 class TicTacToe:
@@ -14,7 +14,7 @@ class TicTacToe:
     @staticmethod   #function which doesn't use self
     def printBoardNums():
         #tells us what number corresponds to what box
-        numberBoard = [[str(i) for i in range(j*3,(j+1)*3)] for j in range(3)]
+        numberBoard = [[str(i+1) for i in range(j*3,(j+1)*3)] for j in range(3)]
         for row in numberBoard:
             print('| '+' | '.join(row)+' |')
 
@@ -103,8 +103,13 @@ def play(game, x_player, o_player, printGame = True):
         print('It\'s a tie !')
 
 if __name__ == '__main__':
+    #humanPlayer vs randomComputerPlayer
+    #x_player = HumanPlayer('X')
+    #o_player = RandomComputerPlayer('O')
+
+    #humanPlayer vs geniusComputerPlayer
     x_player = HumanPlayer('X')
-    o_player = RandomComputerPlayer('O')
+    o_player = GeniusComputerPlayer('O')
     t= TicTacToe()
     play(t, x_player, o_player, printGame = True)
 
